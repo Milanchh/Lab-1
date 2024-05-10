@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <style>
+
+#ncTabe {
+  background-color: aqua;
+  margin-left:70px;
+  padding: 10px 20px;
+  border-color: black;
+    }
+
+ input[type="button"]{
+ margin-left: 70px;
+ color:green;
+ background-color: rgb(142, 142, 233);
+
+ }
+  </style>
+
+</head>
+
+
+<body>
+<table id="ncTabe" border="1"> 
+  <tr>
+    <td>Row1 Col1</td> 
+    <td>Row1 Col2</td>
+  </tr> 
+  <tr>
+    <td>Row2 Col1</td> 
+    <td>Row2 Col2</td>
+  </tr> 
+    <tr>
+    <td>Row3 Col1</td> 
+    <td>Row3 Col2</td>
+  </tr> 
+    <tr>
+    <td>Row4 Col1</td> 
+    <td>Row4 Col2</td>
+  </tr> 
+    <tr>
+    <td>Row5 Col1</td> 
+    <td>Row5 Col2</td>
+  </tr> 
+</table><br> 
+<input type="button" onclick="insertRowBottom()" value="Insert row">  
+<input type="button" onclick="deleteRowTop()" value="delete row">  
+</br>
+<div id="message"></div> <!-- Message area -->
+<script>
+
+// add code here
+
+var x=5;
+
+function insertRowBottom(){
+
+
+
+  var tbl= document.getElementById("ncTabe");
+
+  x++;
+
+  var rw = tbl.insertRow(-1);
+  var tablecell1 = rw.insertCell(0);
+  var tablecell2 = rw.insertCell(1);
+  tablecell1.innerHTML = "Row "+x+" Col 1";
+  tablecell2.innerHTML = "Row "+x+"  Col 2";
+  document.getElementById("message").innerHTML = ""; // Clear the message if rows exist
+
+
+  
+
+
+}
+
+function deleteRowTop(){
+
+var tbl= document.getElementById("ncTabe");
+if (tbl.rows.length > 0) {
+    tbl.deleteRow(0);
+    document.getElementById("message").innerHTML = ""; // Clear the message if rows exist
+  } else {
+    document.getElementById("message").innerHTML = "Message: No more rows to delete"; // Show message
+  }
+var counter=tbl.rows.length;
+tbl.deleteRow(0);
+
+
+
+}
+
+</script>
+</body>
+</html>
